@@ -19,11 +19,23 @@ const historico = {};
 // ================= CLIENTE WHATSAPP =================
 const client = new Client({
     authStrategy: new LocalAuth({ dataPath: '/app/session' }),
-    puppeteer: {
-        headless: true,
-        executablePath: '/usr/bin/chromium',
-        args: ['--no-sandbox','--disable-setuid-sandbox','--disable-dev-shm-usage','--disable-gpu']
-    }
+  puppeteer: {
+    headless: true,
+    executablePath: '/usr/bin/chromium',
+    args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu',
+        '--disable-web-security',
+        '--disable-features=VizDisplayCompositor',
+        '--single-process',
+        '--no-zygote',
+        '--no-first-run'
+    ],
+    timeout: 120000
+}
+ 
 });
 
 let qrCodeAtual = null;
@@ -97,3 +109,4 @@ app.get("/qr", async (req,res) => {
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, '0.0.0.0', () => console.log("Servidor ativo na porta", PORT));
+
