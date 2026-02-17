@@ -1,0 +1,19 @@
+{
+  "name": "enitech-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp bot ENI-NTEC multiagente",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "whatsapp-web.js": "^1.27.0",
+    "openai": "^4.70.0",
+    "express": "^4.21.0",
+    "qrcode": "^1.5.3",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
